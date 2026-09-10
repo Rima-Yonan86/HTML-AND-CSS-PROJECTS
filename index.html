@@ -1,36 +1,392 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charest="UTF-8">
-<title>Basic HTML and css</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-ol{
-    color:purple;
-  }
-ul  {
-    color:blue;
-  }
+    <title>Your Name | One-Page Website</title>
+    <meta name="description" content="A modern one-page personal website.">
 
-.shadow  {
-      text-shadow:  2px 2px 4px gray;
-}  
-</style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a:hover {
+            color: #555;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 25px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* Hero */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f5f5f5, #ffffff);
+        }
+
+        .hero {
+            max-width: 750px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 7vw, 5rem);
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            background: #222;
+            color: #fff;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #555;
+            transform: translateY(-2px);
+        }
+
+        /* About */
+        #about {
+            background: #f8f8f8;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+
+        .about-text {
+            max-width: 750px;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        /* Services */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .card {
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: #fff;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #666;
+        }
+
+        /* Projects */
+        #projects {
+            background: #f8f8f8;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .project {
+            min-height: 220px;
+            padding: 25px;
+            border-radius: 10px;
+            background: #222;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+        }
+
+        .project p {
+            color: #ccc;
+            margin-top: 8px;
+        }
+
+        /* Contact */
+        form {
+            max-width: 650px;
+            margin-top: 30px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font: inherit;
+        }
+
+        textarea {
+            min-height: 160px;
+            resize: vertical;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            font: inherit;
+        }
+
+        /* Footer */
+        footer {
+            padding: 30px 25px;
+            text-align: center;
+            background: #222;
+            color: #fff;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 12px;
+                font-size: 0.9rem;
+            }
+
+            .cards,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 80px 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1 class="shadow">The Pet Shop</h1>
-<h2>Pet Shop</h2> 
-    <p>Welcome to The Pet Shop!</p>
-    <ol>
-        <li>Dogs</li>
-        <li>Cats</li>
-        
-</ol>
-    <ul>
-        <li>Food</li>
-        <li>Toys</li>
-        
-    </ul>
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">YourName</div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section id="home">
+        <div class="container">
+            <div class="hero">
+                <h1>Hello, I'm Your Name.</h1>
+
+                <p>
+                    I create beautiful, useful, and modern digital experiences.
+                    Welcome to my one-page website.
+                </p>
+
+                <a href="#contact" class="btn">Let's Talk</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+
+            <p class="about-text">
+                I'm a creative professional passionate about building meaningful
+                projects and solving problems through design, technology, and
+                creativity. This section is where you can introduce yourself,
+                your background, and what makes you unique.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">What I Do</h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Web Design</h3>
+                    <p>
+                        Clean, modern, responsive websites designed to look
+                        great on every device.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Development</h3>
+                    <p>
+                        Fast and reliable websites built with modern
+                        technologies.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Creative Work</h3>
+                    <p>
+                        Creative solutions that help turn ideas into
+                        memorable experiences.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+
+            <div class="project-grid">
+
+                <div class="project">
+                    <h3>Project One</h3>
+                    <p>A short description of your project.</p>
+                </div>
+
+                <div class="project">
+                    <h3>Project Two</h3>
+                    <p>A short description of your project.</p>
+                </div>
+
+                <div class="project">
+                    <h3>Project Three</h3>
+                    <p>A short description of your project.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+
+            <p>
+                Have a project or idea? Send me a message.
+            </p>
+
+            <form action="#" method="POST">
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    required
+                >
+
+                <textarea
+                    name="message"
+                    placeholder="Your Message"
+                    required
+                ></textarea>
+
+                <button type="submit" class="btn">
+                    Send Message
+                </button>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Your Name. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
